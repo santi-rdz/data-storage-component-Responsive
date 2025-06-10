@@ -1,0 +1,231 @@
+@layer global {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  body {
+    font-family: "Raleway", sans-serif;
+    height: 100dvh;
+    background-color: var(--clr-blue950);
+    background-image: url("images/bg-mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-position: center;
+    color: var(--clr-white);
+  }
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+  main {
+    height: 100dvh;
+  }
+}
+@layer variables {
+  :root {
+    --clr-white: #fff;
+    --clr-black: #000;
+
+    --clr-blue950: #0c122c;
+    --clr-blue900: #0f1b3d;
+    --clr-blue850: #1e2d69;
+    --clr-blue600: #697ed4;
+    --clr-blue200: #dbd9ff;
+
+    --gradient-1: linear-gradient(
+      to right,
+      #1e2d69 0%,
+      rgba(12, 18, 44, 0) 100%
+    );
+    --gradient-2: linear-gradient(to right, #ffa197, #ff4a95);
+  }
+}
+@layer utilitys {
+  .container {
+    width: min(90%, 1000px);
+    margin: 0 auto;
+  }
+  .txt-1 {
+    font-size: 4rem;
+    line-height: 1;
+    letter-spacing: 0px;
+  }
+  .txt-2 {
+    font-size: 1.4rem;
+    line-height: 1.15;
+    letter-spacing: 0px;
+    color: var(--clr-blue200);
+  }
+  .txt-3 {
+    font-size: 1.2rem;
+    line-height: 1.15;
+    letter-spacing: 0px;
+  }
+  .extra-bold {
+    font-weight: 800;
+  }
+  .bold {
+    font-weight: 700;
+  }
+  .regular {
+    font-weight: 400;
+  }
+  .flex {
+    display: flex;
+  }
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .txt-center {
+    text-align: center;
+  }
+}
+
+@layer fylo {
+  .fylo {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1.6rem;
+  }
+  .fylo-icons-card {
+    background-color: var(--clr-blue850);
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    padding: 4rem;
+    border-radius: 10px;
+    border-top-right-radius: 100px;
+  }
+  .icons {
+    gap: 1.6rem;
+  }
+  .icon {
+    background-color: var(--clr-blue950);
+    width: 48px;
+    height: 48px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
+  .fylo-storage-card {
+    background-color: var(--clr-blue850);
+    padding: 4rem;
+    position: relative;
+    border-radius: 10px;
+  }
+  .storage-txt {
+    margin-bottom: 1.6rem;
+  }
+  .storage-bar {
+    background-color: var(--clr-blue900);
+    width: 100%;
+    height: 20px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+    padding: 3px;
+  }
+  .storage-bar-value {
+    background-image: var(--gradient-2);
+    width: 80%;
+    height: 100%;
+    border-radius: inherit;
+    position: relative;
+  }
+  .storage-bar-value::after {
+    content: "";
+    background-color: var(--clr-white);
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3px;
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .storage-data {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .storage-left {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.4rem 2.2rem;
+    border-radius: 10px;
+    gap: 8px;
+    color: var(--clr-blue950);
+    background-color: var(--clr-white);
+  }
+  .storage-left span:nth-child(2) {
+    opacity: 0.5;
+  }
+}
+
+@media (width >= 768px) {
+  body {
+    background-image: url("images/bg-desktop.png");
+    background-size: 100% 40vh;
+    background-position: bottom center;
+  }
+  .fylo-icons-card {
+    width: 350px;
+  }
+  .container {
+    width: min(80%, 1000px);
+  }
+}
+
+@media (width >= 1440px) {
+  body {
+    background-size: 100% 50vh;
+  }
+  .fylo {
+    grid-template-columns: auto 1fr;
+    column-gap: 3.2rem;
+  }
+
+  .fylo-storage-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    align-self: end;
+  }
+  .storage-txt {
+    align-self: self-start;
+  }
+  .storage-left {
+    border-bottom-right-radius: 0;
+    left: auto;
+    right: 7%;
+    top: -25%;
+    transform: translateX(0);
+  }
+  .storage-left::after {
+    content: "";
+    position: absolute;
+    bottom: -20px; /* cuán lejos baja el triángulo */
+    right: 0; /* ajusta para alinearlo al borde derecho */
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-top: 20px solid var(--clr-white); /* altura del triángulo */
+  }
+}
