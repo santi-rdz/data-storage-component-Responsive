@@ -5,7 +5,7 @@ A solution to the Frontend Mentor challenge to build a responsive Fylo data stor
 
 ## Demo
 
-[Live Demo]([https://your-username.github.io/fylo-data-storage-component](https://rdz-storage-component.netlify.app/))
+[Live Demo] (https://rdz-storage-component.netlify.app/)
 
 ## Technologies
 
